@@ -1,0 +1,146 @@
+// main: ../main.sass
+  __  __ _      _
+ |  \/  (_)_  _(_)_ __  ___
+ | |\/| | \ \/ / | '_ \/ __|
+ | |  | | |>  <| | | | \__ \
+ |_|  |_|_/_/\_\_|_| |_|___/
+
+//------------------------------------------------------------------------------
+//                        Vertical/Horizontal Centering
+//------------------------------------------------------------------------------
+
+// * Simple mixin for centering elements vertically, horizontally or both
+// * 1. +center(vert) centers element vertically
+// * 2. +center(hori) centers element horizontally
+// * 3. +center(both) centers element both vertically and horizontally
+
+
+=center($position)
+  position: absolute
+
+  @if $position == 'vert'
+    top: 50%
+
+    -webkit-transform: translateY(-50%)
+    -ms-transform: translateY(-50%)
+    transform: translateY(-50%)
+
+  @else if $position == 'hori'
+    left: 50%
+
+    -webkit-transform: translateX(-50%)
+    -ms-transform: translateX(-50%)
+    transform: translate(-50%)
+
+  @else if $position == 'both'
+    top: 50%
+    left: 50%
+
+    -webkit-transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)
+
+//------------------------------------------------------------------------------
+//                           Consistent font sizes
+//------------------------------------------------------------------------------
+
+// * Easily convert pixel font-sizes to rem
+// * +font-size(16px) converts into font-size: 1rem
+
+@function calculateRem($size)
+  $remSize: $size / 16px
+  @return $remSize * 1rem
+
+=font-size($size)
+  font-size: $size
+  font-size: calculateRem($size)
+
+//------------------------------------------------------------------------------
+//                                 Animations
+//------------------------------------------------------------------------------
+
+//Keyframes with vendor prefixes
+=keyframes($animation-name)
+  @-webkit-keyframes #{$animation-name}
+    @content
+
+  @-moz-keyframes #{$animation-name}
+    @content
+
+  @-ms-keyframes #{$animation-name}
+    @content
+
+  @-o-keyframes #{$animation-name}
+    @content
+
+  @keyframes #{$animation-name}
+    @content
+
+//Add animation
+=animation($str)
+  -webkit-animation: #{$str}
+  -moz-animation: #{$str}
+  -ms-animation: #{$str}
+  -o-animation: #{$str}
+  animation: #{$str}
+
+//------------------------------------------------------------------------------
+//                                No scrollbars
+//------------------------------------------------------------------------------
+=noBars
+  overflow: -moz-scrollbars-none
+
+  -ms-overflow-style: none
+  &::-webkit-scrollbar
+    width: 0 !important
+
+//------------------------------------------------------------------------------
+//                                     Grid
+//------------------------------------------------------------------------------
+=grid
+  display: -ms-grid
+  display:     grid
+
+//------------------------------------------------------------------------------
+//                               Center grid items
+//------------------------------------------------------------------------------
+
+// * Use to center elements within a CSS grid
+
+=gridCenter
+  align-items: center
+  justify-items: center
+
+
+//------------------------------------------------------------------------------
+//                                Vendor prefixes
+//------------------------------------------------------------------------------
+
+
+// * Easily add vendor prefixes
+// * Example:
+// * +vendor(transform, rotate(360deg), webkit ms)
+// * Output:
+// *  -webkit-transform: rotate(360deg);
+// *      -ms-transform: rotate(360deg);
+// *          transform: rotate(360deg);
+// *
+// * Use http://shouldiprefix.com/ if in doubt to which vendor prefixes is needed
+
+=vendor($property, $value, $vendors: webkit moz ms o, $default: true)
+  @if $vendors
+    @each $vendor in $vendors
+      #{"-" + $vendor + "-" + $property}: #{$value}
+
+  @if $default
+    #{$property}: #{$value}
+
+
+//------------------------------------------------------------------------------
+//                             Display:flex
+//------------------------------------------------------------------------------
+=flex
+  display: -webkit-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex

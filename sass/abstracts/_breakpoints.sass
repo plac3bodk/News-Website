@@ -1,0 +1,21 @@
+// main: ../main.sass
+  ____                 _                _       _     __  __
+ | __ ) _ __ ___  __ _| | ___ __   ___ (_)_ __ | |_  |  \/  | __ _ _ __   __ _  __ _  ___ _ __
+ |  _ \| '__/ _ \/ _` | |/ / '_ \ / _ \| | '_ \| __| | |\/| |/ _` | '_ \ / _` |/ _` |/ _ \ '__|
+ | |_) | | |  __/ (_| |   <| |_) | (_) | | | | | |_  | |  | | (_| | | | | (_| | (_| |  __/ |
+ |____/|_|  \___|\__,_|_|\_\ .__/ \___/|_|_| |_|\__| |_|  |_|\__,_|_| |_|\__,_|\__, |\___|_|
+
+$breakpoints: ('xs': (min-width:400px), 's': (min-width:600px), 'm': (min-width: 800px), 'l': (min-width: 1000px), 'xl': (min-width: 1200px), 'xxl': (min-width:1600px))
+
+/// Responsive breakpoint manager
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+=bp($breakpoint)
+  $raw-query: map-get($breakpoints, $breakpoint)
+
+  @if $raw-query
+    $query: if(type-of($raw-query) == 'string', unquote($raw-query), inspect($raw-query))
+
+    @media #{$query}
+      @content
