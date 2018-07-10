@@ -5,3 +5,25 @@
  | |_| | |  | | (_| | | | (_| | |_| | (_) | |_| | |_
   \____|_|  |_|\__,_| |_|\__,_|\__, |\___/ \__,_|\__|
                                |___/
+
+.grid
+  display: grid
+  width: 100%
+  grid-template-columns: repeat(12, 1fr)
+  grid-template-rows: 50px 75px auto
+  overflow: hidden
+  +vendor("transition", "margin-left .225s", "webkit moz ms")
+
+  &.gridPushed
+    margin-left: -270px
+    +vendor("transition", "margin-left .225s", "webkit moz ms")
+
+#header
+  grid-column: 1 / -1
+
+#main
+  grid-column: 1 / -1
+  background: red
+
+#footer
+  background: orange
