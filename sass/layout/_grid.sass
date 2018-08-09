@@ -7,23 +7,31 @@
                                |___/
 
 .grid
-  display: grid
+  +grid
   width: 100%
   grid-template-columns: repeat(12, 1fr)
-  grid-template-rows: 50px 75px auto
+  grid-template-rows: 50px auto auto 150px
   overflow: hidden
-  +vendor("transition", "margin-left .225s", "webkit moz ms")
+  +trans(margin-left)
 
   &.gridPushed
     margin-left: -270px
-    +vendor("transition", "margin-left .225s", "webkit moz ms")
+    +trans(margin-left)
+
+  +bp("l")
+    grid-template-rows: 75px 50px auto 65px 150px
 
 #header
   grid-column: 1 / -1
 
+#nav
+  grid-column: 1 / -1
+
 #main
   grid-column: 1 / -1
-  background: red
+
+#shortNav
+  grid-column: 1 / -1
 
 #footer
-  background: orange
+  grid-column: 1 / -1
