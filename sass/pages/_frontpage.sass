@@ -14,6 +14,7 @@
     width: 100%
     .focusPost
       position: relative
+      margin-bottom: 1px
       &:nth-child(1)
         height: 360px
         width: 100%
@@ -81,6 +82,13 @@
         width: 100%
         float: left
         margin-bottom: 15px
+        +bp('m')
+          width: 49%
+          &:nth-child(odd)
+            float: left
+          &:nth-child(even)
+            float: right
+
         img
           height: 100%
           width: 100%

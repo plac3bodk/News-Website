@@ -6,4 +6,20 @@
  |_|  \___/ \___/ \__\___|_|    |_|\__,_|\__, |\___/ \__,_|\__|
                                          |___/
 #footer
-  background: darken($headerLight, 5%)
+  background: $bgColor
+  position: relative
+
+.socialIcons
+  +center('both')
+  a
+    padding: 15px
+    background: $headerLight
+
+
+
+.copyright
+  position: absolute
+  bottom: 5px
+  color: white
+  width: 100%
+  text-align: center
