@@ -20,8 +20,9 @@
         width: 100%
         float: left
         +bp('l')
-          width: 50%
-          height: 420px
+          width: calc(50% - 1px)
+          height: 422px
+          margin-right: 1px
         img
           height: 100%
           width: 100%
@@ -40,14 +41,14 @@
           width: 100%
           object-fit: cover
       &:hover > .postTitle
-        background: rgba(157,1,175,0.5)
+        background: rgba(0,159,175,0.7)
         +trans(background)
       .postCat
         position: absolute
         top: 20px
         left: 0
         padding: $contentPadding
-        background: rgba(157,1,175,.7)
+        background: $purple
         color: white
         font-weight: bold
         text-transform: uppercase
@@ -64,62 +65,7 @@
         color: $headerLight
         text-decoration: none
         font-weight: bold
-        &:hover
 
-  ////////////////////Main Content////////////////////
-  #mainContent
-    width: 100%
-    box-shadow: 0 0 12px 0 #ccc
-    float: left
-    margin-top: 15px
-    padding: $contentPadding
-
-    #mainPosts
-      width: 100%
-      .mainPost
-        position: relative
-        height: 280px
-        width: 100%
-        float: left
-        margin-bottom: 15px
-        +bp('m')
-          width: 49%
-          &:nth-child(odd)
-            float: left
-          &:nth-child(even)
-            float: right
-
-        img
-          height: 100%
-          width: 100%
-          object-fit: cover
-
-
-        &:hover > .postTitle
-          background: rgba(157,1,175,0.5)
-          +trans(background)
-        .postCat
-          position: absolute
-          top: 20px
-          left: 0
-          padding: $contentPadding
-          background: rgba(157,1,175,.7)
-          color: white
-          font-weight: bold
-          text-transform: uppercase
-          +font-size(13px)
-          text-decoration: none
-        .postTitle
-          position: absolute
-          bottom: 0
-          left: 0
-          width: 100%
-          padding: $largePadding
-          background: rgba(0,0,0,.5)
-          +font-size(19px)
-          color: $headerLight
-          text-decoration: none
-          font-weight: bold
 
 
 

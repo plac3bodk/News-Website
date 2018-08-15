@@ -190,16 +190,35 @@
         height: 500px
 
   input
-    width: 250px
-    margin: 8px 11px
+    display: block
+    float: left
+
+    width: 260px
+    height: 40px
     padding: 7px
+    margin: 5px 5px
 
-    color: white
-    border: 1px solid #4d4d4d
-    background: $bgColor
+    color: #888888
+    border: 1px solid #444444
+    border-radius: 5px
+    background: #222222
+    background: linear-gradient(#333333, #222222)
+    text-shadow: 0 -1px 0 #000000
 
+    font-family: 'Cabin', helvetica, arial, sans-serif
+    font-size: 13px
+    font-weight: 400
     +bp("l")
       display: none
+
+    &:focus
+      animation: glow 800ms ease-out infinite alternate
+
+      color: #efe
+      border-color: #393
+      outline: none
+      background: #222922
+      background: linear-gradient(#333933, #222922)
 .subList
   overflow: hidden
 

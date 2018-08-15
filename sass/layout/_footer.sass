@@ -11,9 +11,16 @@
 
 .socialIcons
   +center('both')
-  a
+  width: 100%
+  text-align: center
+  span
     padding: 15px
-    background: $headerLight
+    font-size: 40px
+    color: $headerLight
+    +trans(color)
+    &:hover
+      +trans(color)
+      color: $secondary
 
 .copyright
   position: absolute
@@ -21,3 +28,4 @@
   color: white
   width: 100%
   text-align: center
+  left: 0

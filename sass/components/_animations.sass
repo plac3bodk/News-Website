@@ -4,3 +4,92 @@
    / _ \ | '_ \| | '_ ` _ \ / _` | __| |/ _ \| '_ \/ __|
   / ___ \| | | | | | | | | | (_| | |_| | (_) | | | \__ \
  /_/   \_\_| |_|_|_| |_| |_|\__,_|\__|_|\___/|_| |_|___/
+
+//
+//Bounce right
+//
+
+.bounce-right
+  vertical-align: middle
+  -webkit-transform: perspective(1px) translateZ(0)
+  transform: perspective(1px) translateZ(0)
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0)
+  position: relative
+  -webkit-transition-property: color
+  transition-property: color
+  -webkit-transition-duration: 0.5s
+  transition-duration: 0.5s
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: $secondary-dark
+    -webkit-transform: scaleX(0)
+    transform: scaleX(0)
+    -webkit-transform-origin: 0 50%
+    transform-origin: 0 50%
+    -webkit-transition-property: transform
+    transition-property: transform
+    -webkit-transition-duration: 0.5s
+    transition-duration: 0.5
+    -webkit-transition-timing-function: ease-out
+    transition-timing-function: ease-out
+  &:hover:before,
+  &:focus:before,
+  &:active:before
+    -webkit-transform: scaleX(1)
+    transform: scaleX(1)
+    -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66)
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66)
+    color: $primary-light
+
+//
+//Radial out
+//
+.radial-out
+  vertical-align: middle
+  -webkit-transform: perspective(1px) translateZ(0)
+  transform: perspective(1px) translateZ(0)
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0)
+  position: relative
+  overflow: hidden
+  background: #e1e1e1
+  -webkit-transition-property: color
+  transition-property: color
+  -webkit-transition-duration: 0.3s
+  transition-duration: 0.3s
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: $secondary-dark
+    border-radius: 100%
+    -webkit-transform: scale(0)
+    transform: scale(0)
+    -webkit-transition-property: transform
+    transition-property: transform
+    -webkit-transition-duration: 0.15s
+    transition-duration: 0.15s
+    -webkit-transition-timing-function: ease-out
+    transition-timing-function: ease-out
+  &:hover:before,
+  &:focus:before,
+  &:active:before
+    -webkit-transform: scale(2)
+    transform: scale(2)
+
+@keyframes glow
+  0%
+    border-color: $secondary
+    box-shadow: 0 0 2px rgba(77,208,255,.2), inset 0 0 5px rgba(77,208,255,.1), 0 2px 0 #000
+  100%
+    border-color: $secondary
+    box-shadow: 0 0 5px rgba(255,255,255,.6), inset 0 0 10px rgba(255,255,255,.4), 0 2px 0 #000

@@ -13,3 +13,85 @@ body
 #footer
   +bp('xl')
     padding: 0 10%
+
+.grid.frontpage,
+.grid.textpage
+  ////////////////////Main Content////////////////////
+  #mainContent
+    width: 100%
+    box-shadow: 0 0 12px 0 #ccc
+    float: left
+    margin-top: 15px
+    padding: $contentPadding
+
+    #mainPosts
+      width: 100%
+      height: 885px
+      overflow: hidden
+      max-height: 8260px
+      .mainPost
+        position: relative
+        height: 280px
+        width: 100%
+        float: left
+        margin-bottom: 15px
+        +bp('m')
+          width: 49%
+          &:nth-child(odd)
+            float: left
+          &:nth-child(even)
+            float: right
+
+        img
+          height: 100%
+          width: 100%
+          object-fit: cover
+
+
+        &:hover > .postTitle
+          background: rgba(0,159,175,0.7)
+          +trans(background)
+        .postCat
+          position: absolute
+          top: 20px
+          left: 0
+          padding: $contentPadding
+          background: $purple
+          color: white
+          font-weight: bold
+          text-transform: uppercase
+          +font-size(13px)
+          text-decoration: none
+        .postTitle
+          position: absolute
+          bottom: 0
+          left: 0
+          width: 100%
+          padding: $largePadding
+          background: rgba(0,0,0,.5)
+          +font-size(19px)
+          color: $headerLight
+          text-decoration: none
+          font-weight: bold
+    p
+      line-height: 1.675
+      margin-bottom: 10px
+    .mainOnpage
+      max-height: 135px
+      overflow: hidden
+      +trans(max-height)
+      +bp('l')
+        max-height: 1000px
+      &.more
+        max-height: 1500px
+        +trans(max-height)
+.readMore
+  width: 100%
+  +bp('l')
+    display: none
+
+.loadMore
+  width: 100%
+  +bp('l')
+    margin: 0 auto
+    width: 50%
