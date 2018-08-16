@@ -14,3 +14,10 @@
       $(this).parent().find(".subList").toggleClass("navOpen")
     })
   });
+
+$("#main").click(function(){
+  if ($("#nav").hasClass("navOpen")) {
+    $("#nav").removeClass('navOpen');
+    $(".grid").removeClass('gridPushed');
+  }
+});

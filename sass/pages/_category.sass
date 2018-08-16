@@ -7,4 +7,28 @@
                                     |_|          |___/                |___/
 
 .grid.category
-  
+  ////////////////////Main Content////////////////////
+  #mainContent
+    width: 100%
+    box-shadow: 0 0 12px 0 #ccc
+    float: left
+    margin-top: 15px
+    padding: $largePadding
+
+    #mainPosts
+      width: 100%
+      height: 1460px
+      overflow: hidden
+      max-height: 8260px
+      .mainPost
+        position: relative
+        height: 280px
+        width: 100%
+        float: left
+        margin-bottom: 15px
+        +bp('m')
+          width: 49%
+          &:nth-child(odd)
+            float: left
+          &:nth-child(even)
+            float: right
