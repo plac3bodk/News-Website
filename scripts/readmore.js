@@ -10,4 +10,7 @@ $(".readMore").click(function(){
 
 $('.loadMore').click(function(){
     $('#mainPosts').animate({height:'+=885'}, 500);
+    if ($('#mainPosts').height() > 7950 ) {
+      $('.loadMore').remove();
+    }
 });

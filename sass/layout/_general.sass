@@ -22,7 +22,7 @@ body
     box-shadow: 0 0 12px 0 #ccc
     float: left
     margin-top: 15px
-    padding: $contentPadding
+    padding: $largePadding
 
     #mainPosts
       width: 100%
@@ -95,3 +95,8 @@ body
   +bp('l')
     margin: 0 auto
     width: 50%
+.noMore
+  &:hover
+    background: #e1e1e1
+    pointer-events: none
+    cursor: not-allowed
